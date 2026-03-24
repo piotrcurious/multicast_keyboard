@@ -1,4 +1,7 @@
-#include "Arduino.h"
+#include "WiFi.h"
+#include "AsyncUDP.h"
+
+// Implementations for Arduino.h
 #include <cstdarg>
 #include <cstdio>
 #include <chrono>
@@ -30,5 +33,4 @@ uint32_t micros() {
     return std::chrono::duration_cast<std::chrono::microseconds>(now - start).count();
 }
 
-#include "WiFi.h"
 WiFiClass WiFi;

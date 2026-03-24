@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "IPAddress.h"
+#include "WiFiClient.h"
 
 enum wl_status_t {
     WL_IDLE_STATUS,

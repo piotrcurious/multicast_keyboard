@@ -34,6 +34,7 @@ public:
     void onPacket(std::function<void(AsyncUDPPacket& packet)> handler) { _handler = handler; }
     size_t write(const uint8_t *data, size_t len) { return len; }
     size_t print(const char *s) { return strlen(s); }
+    size_t print(String s) { return s.length(); }
     size_t broadcastTo(const char* s, uint16_t port) {
         std::cout << "[MOCK BROADCAST TO PORT " << port << "]: " << s << std::endl;
         return strlen(s);
