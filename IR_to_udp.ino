@@ -24,9 +24,9 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("WiFi connected");
+  Serial.println("\nWiFi connected");
   irrecv.enableIRIn(); // Start the receiver
-  Udp.beginMulticast(WiFi.localIP(), multicast_ip, kUdpPort);
+  Udp.beginMulticast(WiFi.localIP(), IPAddress(224,0,0,1), kUdpPort);
 }
 
 void loop() {
@@ -35,7 +35,7 @@ void loop() {
     // For example, assuming NEC encoding:
     switch (results.value) {
       case 0xFFA25D: // Button "power"
-        Udp.beginPacketMulticast(multicast_ip, kUdpPort, WiFi.localIP());
+        Udp.beginPacketMulticast(IPAddress(224,0,0,1), kUdpPort, WiFi.localIP());
         Udp.write("POWER_BUTTON_PRESSED");
         Udp.endPacket();
         break;
